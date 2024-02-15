@@ -27,4 +27,6 @@ jobs:
               with:
                 node-version: ${{ matrix.node-version }}
             - run: npm i
+            - run: mkdir -p data/db && npm install mongodb && mongod --dbpath=./data/db
+            - run: npm run dev
             - run: npm test
